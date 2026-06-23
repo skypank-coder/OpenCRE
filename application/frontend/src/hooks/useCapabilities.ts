@@ -4,6 +4,7 @@ import { useEnvironment } from './useEnvironment';
 
 export type Capabilities = {
   myopencre: boolean;
+  login: boolean;
 };
 
 export const useCapabilities = () => {
@@ -17,7 +18,7 @@ export const useCapabilities = () => {
     fetch(`${baseUrl}/api/capabilities`)
       .then((res) => res.json())
       .then(setCapabilities)
-      .catch(() => setCapabilities({ myopencre: false }))
+      .catch(() => setCapabilities({ myopencre: false, login: false }))
       .finally(() => setLoading(false));
   }, [apiUrl]);
 
